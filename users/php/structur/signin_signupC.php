@@ -32,6 +32,10 @@
                     <a href="" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
                     <a href="" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
+                <div class="forget-mdp">
+                    <a href="http://localhost:7070/users/php/structur/mailrec.php" class="social-link">forget password ?</a>
+                </div>
+            </form>
             </form>
             <form action="http://localhost:7070/users/php/signup_traitC.php" method="post" class="sign-up-form">
                 <h2 class="title">Sign Up</h2>

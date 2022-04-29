@@ -195,10 +195,7 @@ color: rgb(243, 132, 29);
    text-decoration: none;
    text-transform: none;
 }
-#interface .navigation .acount a, 
-#interface .navigation .acount i{
-    color: rgb(255, 153, 0);
-}
+
 #interface .navigation .acount img{
     width: 40px;
     height: 40px;
@@ -252,4 +249,9 @@ color: rgb(243, 132, 29);
 .edit-user a,
 .edit-user i{
     color: rgb(215, 105, 15);
+}
+
+
+i{
+    color: rgb(255, 153, 0);
 }

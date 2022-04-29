@@ -33,9 +33,9 @@ session_start();
         </div>
 
         <div class="items">
+            <li><i class="fa-solid fa-house-user"></i><a href="http://localhost:7070/users/php/structur/homePage.php">Home</a></li>
             <li class="active"><i class="fa-solid fa-table-columns"></i><a href="http://localhost:7070/users/php/structur/AdminPage.php">Dashboard</a></li>
             <li><i class="fa-solid fa-users-viewfinder"></i><a href="http://localhost:7070/users/php/structur/liste.php">Users</a></li>
-            <li><i class="fa-solid fa-ban"></i><a href="#">Ban List</a></li>
             <li><i class="fa-solid fa-sack-dollar"></i><a href="#">trads</a></li>
             <li><i class="fa-solid fa-satellite-dish"></i><a href="#">Communication</a></li>
         </div>

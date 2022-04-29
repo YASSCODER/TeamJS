@@ -1,29 +1,42 @@
 <?php
+
+use LDAP\Result;
+
     session_start();
     require_once 'confBase.php';
+
     if(isset($_POST['email']) && isset($_POST['pass']))
     {
-         $email = htmlspecialchars($_POST['email']);
-         $passwd = htmlspecialchars($_POST['pass']);
-         $check = $pdo->prepare('SELECT email, passwd, pseudo FROM users WHERE email = ?');
-         $check->execute(array($email));
-         $data=$check->fetch();
-         $row=$check->rowCount();
-
-         if($row == 1)
+        $email=$_POST['email'];
+        $passwd=$_POST['pass'];
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result=$pdo->prepare($sql);
+        $result->execute();
+        if($result->rowCount()>0)
         {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL))
-            {
-                
-                    $passwd = hash('sha256', $passwd);
-                    if($data['pass'] === $passwd)
-                    {
-                        $_SESSION['role'] = $data['role'];
-                        header('Location : ../html/clientsPage.html');
-                    }else header('Location : ../html/homePage.html?reg_err=passwd_err');
-                    header('Location : ../html/homePage.html?reg_err=succes');
-            }else header('Location : ../html/homePage.html?reg_err=email_err');   
-        }else header('Location : ../html/signin.html?reg_err=already');
-    }
+            $data=$result->fetchAll();
+            if($data[0]["role"]==="client"){
+                if($passwd === $data[0]["passwd"])
+                {
+                echo"connexion with success !";
+                $id=$data[0]["id"];
+                $role=$data[0]["role"];
+                $token=$data[0]["token"];
+
+                $cookies = array('email' => $email, 'id' => $id, 'role' => $role, 'token' => $token);
+                $_SESSION['cookies']=$cookies;
+                var_dump($_SESSION['cookies']) ;
+                    header('Location: http://localhost:7070/users/php/structur/clientsPage.php');
+                }else echo"password err!";
+            }else echo "you are not a client!";
+        }
+
+    }else echo "empty data !";
+
+
+
+
+        
+         
 
 ?>
