@@ -4,7 +4,7 @@
     $serverName = 'localhost';
     $userNameDB = 'root';
     $PasswordDB ='';
-    $dbName ='users';
+    $dbName ='recpasswd';
 
     try{
         $pdo = new PDO(
@@ -26,7 +26,7 @@
     //creating query :
 
     try{
-        $Query = $pdo->query('SELECT * FROM users');
+        $Query = $pdo->query('SELECT * FROM recpasswd');
         $list= $Query->fetchAll();
     }
     catch(PDOException $exception){

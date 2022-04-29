@@ -15,7 +15,7 @@ session_start();
         <a href="http://localhost:7070/users/php/structur/homePage.php"><img class="logo" src="../../image/logo.png" alt="logo"></a>
          <nav>
              <ul class="nav_list">
-                <li><a class="active" href="/html/homePage.html">Home</a></li>
+                <li><a class="active" href="http://localhost:7070/users/php/structur/homePage.php">Home</a></li>
                 <li><a class="" href="#">Services</a></li>
                 <li><a class="" href="#">About</a></li>
                 <li><a class="" href="#">Community</a></li>
