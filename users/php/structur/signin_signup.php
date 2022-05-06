@@ -10,21 +10,26 @@
     <script src="https://kit.fontawesome.com/0702607ee5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/signin_signup.css">
     <title>Document</title>
+    
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LebxMgfAAAAAOjAxmPPFV5jCdM1c3X95c_vyDWT"></script>
 </head>
 <body>
     <div class="container">
         <div class="signin-signup">
-            <form action="http://localhost:7070/users/php/signin_traitA.php" method="post" class="sign-in-form">
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+                            <!-- SIGN IN FORM -->
+            <form action="http://localhost:7070/users/php/signin_traitA.php" method="post" class="sign-in-form" id="signin">
                 <h2 class="title">Sign In</h2>
                 <div class="input-field">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="email" placeholder="Email" />
+                    <input type="text" name="email" placeholder="Email" class="email" id="email-signin" require/>
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-fingerprint"></i>
-                    <input type="password" name="pass" placeholder="Password"/>
+                    <input type="password" name="pass" placeholder="Password" class="passwd" id="passwd-signin" require/>
                 </div>
-                <input type="submit" value="Login" class="btn">
+                <input type="submit" value="Login" class="btn" id="register">
                 <p class="social-texte">Or Sign in with social platform</p>
                 <div class="social-media">
                     <a href="" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
@@ -35,27 +40,31 @@
                 <div class="forget-mdp">
                     <a href="http://localhost:7070/users/php/structur/mailrec.php" class="social-link">forget password ?</a>
                 </div>
+                <p style="color: rgb(84, 54, 2);" id="erreur"></p>
             </form>
-            <form action="http://localhost:7070/users/php/signup_traitA.php" method="post" class="sign-up-form">
+<!--------------------------------------------------------------------------------------------------------------------------------------------->
+
+                            <!-- SIGN IN FORM -->
+            <form action="http://localhost:7070/users/php/signup_traitA.php" method="post" class="sign-up-form" id="inputs">
                 <h2 class="title">Sign Up</h2>
                 <div class="input-field">
                     <i class="fa-solid fa-at"></i>
-                    <input type="text" name="email" placeholder="Email" />
+                    <input type="text" name="email" placeholder="Email" class="email" id="email-signup" require/>
                 </div>
 
                 <div class="input-field">
                     <i class="fa-solid fa-fingerprint"></i>
-                    <input type="password" name="pass" placeholder="Password"/>
+                    <input type="password" name="pass" placeholder="Password" class="passwd" id="passwd-signup" require/>
                 </div>
 
                 <div class="input-field">
                     <i class="fa-solid fa-fingerprint"></i>
-                    <input type="password" name="cpass" placeholder="Confirm Password" />
+                    <input type="password" name="cpass" placeholder="Confirm Password" class="passwd" id="confirmpasswd-signup" require/>
                 </div>
 
                 <div class="input-field">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="user-name" placeholder="User Name"/>
+                    <input type="text" name="user-name" placeholder="User Name" id="user-name" require/>
                 </div>
 
                 <input type="submit" value="Sign Up" class="btn">
@@ -88,5 +97,25 @@
         </div>
     </div>
     <script src="../../JS/app.js"></script>
+
+    <script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+    </script>
+
+<script>
+grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6LebxMgfAAAAAOjAxmPPFV5jCdM1c3X95c_vyDWT', {action: 'login'}).then(function(token) {
+       
+    });
+});
+</script>
+</script>
+
+    <!-- <script src="../../JS/controle.js"></script> -->
 </body>
 </html>
+
+
+
