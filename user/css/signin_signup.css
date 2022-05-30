@@ -10,7 +10,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: rgba(36, 35, 35, 0.83);
+    background: rgba(255, 255, 255, 0.83);
 }
 
 .container{

@@ -22,8 +22,9 @@ use LDAP\Result;
                 $id=$data[0]["id"];
                 $role=$data[0]["role"];
                 $token=$data[0]["token"];
+                $pseudo=$data[0]["pseudo"];
 
-                $cookies = array('email' => $email, 'id' => $id, 'role' => $role, 'token' => $token);
+                $cookies = array('email' => $email, 'id' => $id, 'role' => $role, 'pseudo' => $pseudo, 'token' => $token);
                 $_SESSION['cookies']=$cookies;
                 var_dump($_SESSION['cookies']) ;
                     header('Location: http://localhost:7070/users/php/structur/clientsPage.php');

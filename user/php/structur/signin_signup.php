@@ -44,7 +44,7 @@
             </form>
 <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
-                            <!-- SIGN IN FORM -->
+                            <!-- SIGN UP FORM -->
             <form action="http://localhost:7070/users/php/signup_traitA.php" method="post" class="sign-up-form" id="inputs">
                 <h2 class="title">Sign Up</h2>
                 <div class="input-field">
@@ -111,11 +111,7 @@ grecaptcha.enterprise.ready(function() {
     });
 });
 </script>
-</script>
 
     <!-- <script src="../../JS/controle.js"></script> -->
 </body>
 </html>
-
-
-

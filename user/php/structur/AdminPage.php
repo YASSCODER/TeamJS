@@ -1,5 +1,16 @@
 <?php 
 session_start(); 
+
+require '../confBase.php';
+if(!empty($_SESSION)){
+    $mazeba=$_SESSION["cookies"]["pseudo"][0];
+    $nickname = strtoupper($mazeba);
+    }
+    $id;
+    $Query = $pdo->prepare("SELECT * FROM users WHERE role ='Admin'");
+    $exec = $Query->execute();
+
+    $users = $Query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,25 +21,26 @@ session_start();
     <link rel="stylesheet" href="../../css/dash.css">
     <title>Dashboard</title>
     <script src="https://kit.fontawesome.com/0702607ee5.js" crossorigin="anonymous"></script>
+    
 </head>
    
 <body>
     <header>
-        <a href="http://localhost:7070/users/php/structur/AdminPage.php"><img class="logo" src="../../image/logo.png" alt="logo"></a>
+        <a href="http://localhost:7070/users/php/structur/AdminPage.php"></a>
          <nav>
              <ul class="nav_list">
                 <li><a class="active" href="http://localhost:7070/users/php/structur/homePage.php">Home</a></li>
                 <li><a class="" href="#">Services</a></li>
                 <li><a class="" href="#">About</a></li>
                 <li><a class="" href="#">Community</a></li>
-                <a class="cta" href="http://localhost:7070/users/php/structur/signin_signup.php"><button>Login</button></a>
+                <a class="cta" href="http://localhost:7070/users/php/structur/signin_signup.php"><button><?php if(!empty($nickname)){echo $nickname;}else echo "<i class='fa-solid fa-right-to-bracket'></i>"; ?></button></a>
              </ul>
          </nav>
     </header>
     
     <section id="menu">
         <div class="logo">
-            <img src="../../image/logo.png" alt="logo">
+            <!-- <img src="../../image/logo1.png" alt="logo"> -->
             <h2>Good Deals</h2>
         </div>
 
@@ -54,7 +66,41 @@ session_start();
                 <a href="http://localhost:7070/users/php/structur/AdminPage.php"><i class="fa-solid fa-user"></i></a>
             </div>
         </div>
-        <?php  var_dump($_SESSION) ; ?>
+       <h3 class="i-name">
+           Dashboard
+       </h3>
+       <div class="values">
+           <div class="valu-box">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <h3>8,276</h3>
+                <span>New Users</span>
+            </div>
+           </div>
+           <div class="valu-box">
+           <i class="fa-solid fa-shop"></i>
+            <div>
+                <h3>868,276</h3>
+                <span>prodact sells</span>
+            </div>
+           </div>
+           <div class="valu-box">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div>
+                <h3>868,276</h3>
+                <span>totale orders</span>
+            </div>
+           </div>
+           <div class="valu-box">
+           <i class="fa-solid fa-dollar-sign"></i>
+            <div>
+                <h3>8,276</h3>
+                <span>benefits</span>
+            </div>
+           </div>
+       </div>
+       <div class="board">
+       </div>
     </section>
 </body>
 

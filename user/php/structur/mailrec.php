@@ -15,5 +15,6 @@
                     <button type="submit" class=btn>Submit</button>
             </form>
     </div>
+    <script src="../../JS/controle.js"></script>
 </body>
 </html>

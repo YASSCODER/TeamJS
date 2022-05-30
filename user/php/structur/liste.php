@@ -1,7 +1,11 @@
 <?php
 
 require '../confBase.php';
-session_start(); 
+session_start();
+if(!empty($_SESSION)){
+    $mazeba=$_SESSION["cookies"]["pseudo"][0];
+    $nickname = strtoupper($mazeba);
+    }
 $id;
     $Query = $pdo->prepare("SELECT * FROM users");
     $exec = $Query->execute();
@@ -21,20 +25,21 @@ $id;
    
 <body>
     <header>
-        <a href="http://localhost:7070/users/php/structur/AdminPage.php"><img class="logo" src="../../image/logo.png" alt="logo"></a>
+        <a href="http://localhost:7070/users/php/structur/AdminPage.php"></a>
          <nav>
              <ul class="nav_list">
                 <li><a class="active" href="http://localhost:7070/users/php/structur/AdminPage.php">Home</a></li>
                 <li><a class="" href="">Services</a></li>
                 <li><a class="" href="#">About</a></li>
                 <li><a class="" href="#">Community</a></li>
+                <a class="cta" href="http://localhost:7070/users/php/structur/signin_signupC.php"><button><?php if(!empty($nickname)){echo $nickname;}else echo "<i class='fa-solid fa-right-to-bracket'></i>"; ?></button></a>
              </ul>
          </nav>
     </header>
 
     <section id="menu">
         <div class="logo">
-            <img src="../../image/logo.png" alt="logo">
+            <!-- <img src="../../image/logo1.png" alt="logo"> -->
             <h2>Good Deals</h2>
         </div>
 
@@ -62,13 +67,16 @@ $id;
         </div>
 
         <div class="board">
+        <h3 class="i-name">
+           Dashboard
+       </h3>
                 <table width="100%">
                     <thead>
-                            <th scope="col">ID</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Pseudo</th>
-                            <th scope="col">Operations</th>
+                            <th scope="col" style="color: black;">ID</th>
+                            <th scope="col" style="color: black;">Role</th>
+                            <th scope="col" style="color: black;">Email</th>
+                            <th scope="col" style="color: black;">Pseudo</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -76,16 +84,16 @@ $id;
                         <?php foreach ($users as $user): ?>
                             <tr>
                                 <td class="table-cell users-id">
-                                    <?= $user['id'] ?>
+                                   <h5 style="color: black;"><?= $user['id'] ?></h5> 
                                 </td>
                                 <td class="table-cell users-role">
-                                    <?= $user['role'] ?>  
+                                <h5 style="color: black;"><?= $user['role'] ?></h5>  
                                 </td>
                                 <td class="table-cell users-email">
-                                    <?= $user['email'] ?>
+                                <h5 style="color: black;"><?= $user['email'] ?></h5> 
                                 </td>
                                 <td class="table-cell users-pseudo">
-                                    <?= $user['pseudo'] ?>
+                                <h5 style="color: black;"><?= $user['pseudo'] ?></h5> 
                                 </td>
                                 <td class="edit-user"> 
                                     <a href="http://localhost:7070/users/php/update.php?updateID=<?= $user['id']?>"><i class="fa-solid fa-user-pen"></i></a>
@@ -95,7 +103,5 @@ $id;
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <?php  var_dump($_SESSION) ; ?>
-        </div>
     </section>
 </body>

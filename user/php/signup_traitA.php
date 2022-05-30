@@ -15,7 +15,7 @@
          $check->execute(array($email));
          $data=$check->fetch();
          $row=$check->rowCount();
-         $cookies = array('id'=>$id, 'role' => $role, 'email' => $email, 'pseudo' => $pseudo, 'token' => $token);
+         $cookies = array('email' => $email, 'id' => $id, 'role' => $role, 'pseudo' => $pseudo, 'token' => $token);
          if($row == 0)
         {
             
